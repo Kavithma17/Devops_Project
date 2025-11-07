@@ -1,0 +1,121 @@
+/* ===== Page Background ===== */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-image: url(../assets/login3.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+
+  /* Flex centering */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Remove extra padding to avoid offset */
+  padding: 0;
+}
+
+
+/* ===== Auth Container ===== */
+.auth-container {
+  max-width: 400px;
+  width: 100%;
+  padding:20px 50px;
+  
+  align-items: center;
+  background: #00000066; /* semi-transparent background */
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(40, 255, 226, 0.1);
+  text-align: center;
+
+  /* Added border */
+  border: 2px solid rgba(0, 255, 225, 0.6);
+  backdrop-filter: blur(10px); /* optional: frosted-glass effect */
+}
+
+
+/* ===== Headings ===== */
+.auth-container h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #00ad85;;
+}
+
+.auth-container .subtitle {
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  color: #a7a3a3;
+}
+
+/* ===== Auth Form ===== */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.auth-form label {
+  text-align: left;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #898686;
+}
+
+.auth-form input {
+  padding: 0.9rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-form input:focus {
+  border-color: #026000;
+  box-shadow: 0 0 6px rgba(108, 99, 255, 0.3);
+}
+
+/* ===== Submit Button ===== */
+.auth-form button {
+  padding: 0.9rem 1rem;
+  background: linear-gradient(135deg, #5edfd4, #77db7c);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.auth-form button:hover {
+  background: linear-gradient(135deg, #49aea6, #57a45b);
+  transform: translateY(-2px);
+}
+
+.auth-form button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+/* ===== Switch Link ===== */
+.switch-link {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.switch-link a {
+  color: #00c194;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 5px;
+  transition: color 0.3s ease;
+}
+
+.switch-link a:hover {
+  color: #008779;
+}
