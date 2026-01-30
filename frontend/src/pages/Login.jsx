@@ -22,6 +22,9 @@ const Login = () => {
       alert(res.data.message);
 
       if (res.data.success) {
+        if (res.data.token) {
+          localStorage.setItem('token', res.data.token);
+        }
         navigate("/dashboard"); // redirect on success
       }
     } catch (err) {

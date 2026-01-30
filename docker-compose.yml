@@ -14,6 +14,7 @@ services:
     environment:
       - NODE_ENV=production
       - MONGO_URI=mongodb://mongo:27017/moodApp
+      - JWT_SECRET=supersecret-jwt
     networks:
       - app-network
 

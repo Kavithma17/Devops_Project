@@ -23,7 +23,10 @@ const Signup = () => {
       alert(res.data.message);
 
       if (res.data.success) {
-        navigate("/login"); // redirect to login after signup
+        if (res.data.token) {
+          localStorage.setItem('token', res.data.token);
+        }
+        navigate("/dashboard"); // redirect on success
       }
     } catch (err) {
       alert(err.response?.data?.message || "Something went wrong");
