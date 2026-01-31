@@ -19,7 +19,7 @@ const Signup = () => {
 
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5000/signup", { name, email, password });
+      const res = await axios.post("http://16.171.154.30:5000/signup", { name, email, password });
       alert(res.data.message);
 
       if (res.data.success) {

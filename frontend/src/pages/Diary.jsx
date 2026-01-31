@@ -42,7 +42,7 @@ export default function Diary() {
   const fetchEntries = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/diary/entries', {
+      const response = await fetch('http://16.171.154.30:5000/diary/entries', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await response.json();
@@ -58,8 +58,8 @@ export default function Diary() {
     try {
       const token = localStorage.getItem('token');
       const url = isEditing 
-        ? `http://localhost:5000/diary/entries/${editingId}`
-        : 'http://localhost:5000/diary/entries';
+        ? `http://16.171.154.30:5000/diary/entries/${editingId}`
+        : 'http://16.171.154.30:5000/diary/entries';
       
       const response = await fetch(url, {
         method: isEditing ? 'PUT' : 'POST',
@@ -86,7 +86,7 @@ export default function Diary() {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/diary/entries/${id}`, {
+      const response = await fetch(`http://16.171.154.30:5000/diary/entries/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
