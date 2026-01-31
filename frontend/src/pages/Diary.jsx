@@ -137,6 +137,56 @@ export default function Diary() {
     return text.trim().split(/\s+/).filter(word => word.length > 0).length;
   };
 
+  const handleDeleteEntry = async (id) => {
+    if (!window.confirm('Delete this entry?')) return;
+
+    try {
+      const token = localStorage.getItem('token');
+      const response = await fetch(`http://localhost:3000/api/diary/entries/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        fetchEntries();
+      }
+    } catch (error) {
+      console.error('Error deleting entry:', error);
+    }
+  };
+
+  const handleEditEntry = (entry) => {
+    setCurrentEntry({
+      title: entry.title,
+      content: entry.content,
+      mood: entry.mood,
+      date: entry.date.split('T')[0]
+    });
+    setIsEditing(true);
+    setEditingId(entry._id);
+  };
+
+  const resetForm = () => {
+    setCurrentEntry({ 
+      title: '', 
+      content: '', 
+      mood: '', 
+      date: new Date().toISOString().split('T')[0] 
+    });
+    setIsEditing(false);
+    setEditingId(null);
+  };
+
+  const filteredEntries = entries
+    .filter(entry => filterMood === 'all' || entry.mood === filterMood)
+    .filter(entry => 
+      entry.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      entry.content.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
   return (
     <div className="diary-page">
       {/* Sidebar */}

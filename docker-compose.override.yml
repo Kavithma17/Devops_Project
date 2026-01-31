@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  frontend:
+    build: ./frontend
+    volumes:
+      - ./frontend:/app         # Mount your frontend code
+      - /app/node_modules       # Keep container's node_modules
+    ports:
+      - "5173:5173"
+    command: npm run dev        # Start Vite dev server
+
+  backend:
+    build: ./backend
+    volumes:
+      - ./backend:/usr/src/app  # Mount backend code
+      - /usr/src/app/node_modules
+    ports:
+      - "5000:5000"
+    command: npm run dev        # Start backend dev server (nodemon)
+  
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
