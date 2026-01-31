@@ -59,7 +59,7 @@ export default function Dashboard() {
         <div className="header-container">
           <div className="logo-section">
             <Heart className="logo-heart" />
-            <h1 className="logo-title">BoomWell</h1>
+            <h1 className="logo-title">BoomVeryWell</h1>
           </div>
           <div className="user-profile">
             <User className="user-icon" />
