@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { 
-  BookOpen, Activity, BookMarked, Heart, Sparkles, 
+import {
+  BookOpen, Activity, BookMarked, Heart, Sparkles,
   Smile, Meh, Frown, ArrowRight, User
 } from 'lucide-react';
 import './Dashboard.css';
@@ -25,23 +25,23 @@ export default function Dashboard() {
   ];
 
   const navigationCards = [
-    { 
-      icon: <BookOpen className="card-icon" />, 
-      title: "Mood Diary", 
+    {
+      icon: <BookOpen className="card-icon" />,
+      title: "Mood Diary",
       description: "Write about your day and track your emotions",
       link: "/diary",
       gradient: "from-green-500/20 to-emerald-500/20"
     },
-    { 
-      icon: <Activity className="card-icon" />, 
-      title: "Exercises", 
+    {
+      icon: <Activity className="card-icon" />,
+      title: "Exercises",
       description: "Guided activities to boost your mental wellness",
       link: "/exercises",
       gradient: "from-blue-500/20 to-cyan-500/20"
     },
-    { 
-      icon: <BookMarked className="card-icon" />, 
-      title: "Resources", 
+    {
+      icon: <BookMarked className="card-icon" />,
+      title: "Resources",
       description: "Articles, tips, and professional support",
       link: "/resources",
       gradient: "from-purple-500/20 to-pink-500/20"
@@ -55,17 +55,22 @@ export default function Dashboard() {
   return (
     <div className="dashboard">
       {/* Header */}
-      <header className="dashboard-header">
-        <div className="header-container">
-          <div className="logo-section">
-            <Heart className="logo-heart" />
-            <h1 className="logo-title">BoomVeryWell</h1>
-          </div>
-          <div className="user-profile">
-            <User className="user-icon" />
+      <header className="classes-header reveal reveal-up">
+        <div className="container ">
+          <div className="header-content">
+            <h1 className="page-title ">
+              Track Your Mood<br></br>
+              <span className="highlight1 ">Write Your Story<br></br>
+                Bloom at Your Own Pace</span>
+            </h1>
+            <p className="page-description reveal reveal-up">
+              Explore your emotions freely in a safe, private space designed just for you.
+            </p>
+
           </div>
         </div>
       </header>
+
 
       {/* Main Content */}
       <main className="dashboard-main">
@@ -80,7 +85,7 @@ export default function Dashboard() {
           </p>
         </div>
 
-       
+
 
         {/* Navigation Cards */}
         <div className="navigation-section">
@@ -109,12 +114,7 @@ export default function Dashboard() {
         </div>
 
         {/* Quote */}
-        <div className="quote-card">
-          <p className="quote-text">
-            "Your mental health is a priority. Your happiness is essential. Your self-care is a necessity."
-          </p>
-          <p className="quote-author">— Take care of yourself today</p>
-        </div>
+        
       </main>
     </div>
   );

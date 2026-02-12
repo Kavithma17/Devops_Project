@@ -624,15 +624,11 @@
 /* CTA Section */
 .cta-section {
   background-color: #000000;
-  background: linear-gradient(135deg, #000000, #66bb6a);
+  background: linear-gradient(135deg, #000000, #2e5530);
   color: white;
   text-align: center;
+  padding: 30px;
   
-  
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
 }
 
 .cta-content h2 {

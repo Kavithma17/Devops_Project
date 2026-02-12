@@ -267,11 +267,7 @@ function Home({ user }) {
           )}
         </div>
         <div className="cta-visual">
-          <div className="growth-animation">
-            <div className="plant-stage stage-1">🌱</div>
-            <div className="plant-stage stage-2">🌿</div>
-            <div className="plant-stage stage-3">🌳</div>
-          </div>
+          
         </div>
       </section>
     </div>
