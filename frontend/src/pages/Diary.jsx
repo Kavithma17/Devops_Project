@@ -24,9 +24,15 @@ export default function Diary() {
   const textareaRef = useRef(null);
 
   const moods = [
-    { value: 'great', label: 'Wonderful' },
-    { value: 'okay', label: 'Neutral' },
-    { value: 'low', label: 'Struggling' }
+    { value: 'great', label: 'Wonderful', emoji: '😄' },
+    { value: 'good', label: 'Good', emoji: '🙂' },
+    { value: 'okay', label: 'Neutral', emoji: '😐' },
+    { value: 'calm', label: 'Calm', emoji: '😌' },
+    { value: 'stressed', label: 'Stressed', emoji: '😣' },
+    { value: 'anxious', label: 'Anxious', emoji: '😰' },
+    { value: 'sad', label: 'Sad', emoji: '😢' },
+    { value: 'angry', label: 'Angry', emoji: '😠' },
+    { value: 'low', label: 'Struggling', emoji: '😞' }
   ];
 
   useEffect(() => {
@@ -172,13 +178,13 @@ export default function Diary() {
           </div>
           
           <div className="mood-filter">
-            {[{ value: 'all', label: 'All', emoji: '📖' }, ...moods.map(m => ({ ...m, value: m.value }))].map((mood) => (
+            {[{ value: 'all', label: 'All', emoji: '📖' }, ...moods].map((mood) => (
               <button
                 key={mood.value}
                 onClick={() => setFilterMood(mood.value)}
                 className={`filter-chip ${filterMood === mood.value ? 'active' : ''}`}
               >
-                <span className="filter-emoji">{mood.emoji || mood.emoji}</span>
+                <span className="filter-emoji">{mood.emoji}</span>
                 <span className="filter-label">{mood.label}</span>
               </button>
             ))}

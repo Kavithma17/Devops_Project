@@ -17,7 +17,17 @@ const diaryEntrySchema = new mongoose.Schema({
   },
   mood: { 
     type: String, 
-    enum: ['great', 'okay', 'low'], 
+    enum: [
+      'great',
+      'good',
+      'okay',
+      'calm',
+      'stressed',
+      'anxious',
+      'sad',
+      'angry',
+      'low'
+    ], 
     required: true 
   },
   date: { 

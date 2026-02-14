@@ -24,6 +24,14 @@ router.post('/entries', async (req, res) => {
     return res.status(400).json({ success: false, message: 'Content and mood are required' });
   }
   try {
+    const allowedMoods = DiaryEntry.schema.path('mood').enumValues;
+    if (!allowedMoods.includes(mood)) {
+      return res.status(400).json({
+        success: false,
+        message: `Invalid mood. Allowed: ${allowedMoods.join(', ')}`
+      });
+    }
+
     const newEntry = new DiaryEntry({
       title: title || 'Untitled',
       content,
@@ -35,6 +43,9 @@ router.post('/entries', async (req, res) => {
     res.status(201).json({ success: true, entry: saved });
   } catch (error) {
     console.error(error);
+    if (error?.name === 'ValidationError') {
+      return res.status(400).json({ success: false, message: error.message });
+    }
     res.status(500).json({ success: false, message: 'Server error' });
   }
 });
@@ -44,6 +55,14 @@ router.put('/entries/:id', async (req, res) => {
   const { id } = req.params;
   const { title, content, mood, date } = req.body;
   try {
+    const allowedMoods = DiaryEntry.schema.path('mood').enumValues;
+    if (mood && !allowedMoods.includes(mood)) {
+      return res.status(400).json({
+        success: false,
+        message: `Invalid mood. Allowed: ${allowedMoods.join(', ')}`
+      });
+    }
+
     const updated = await DiaryEntry.findOneAndUpdate(
       { _id: id, user: req.userId },
       { $set: { title, content, mood, date: date ? new Date(date) : Date.now() } },
@@ -53,6 +72,9 @@ router.put('/entries/:id', async (req, res) => {
     res.json({ success: true, entry: updated });
   } catch (error) {
     console.error(error);
+    if (error?.name === 'ValidationError') {
+      return res.status(400).json({ success: false, message: error.message });
+    }
     res.status(500).json({ success: false, message: 'Server error' });
   }
 });
