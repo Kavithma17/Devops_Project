@@ -17,6 +17,33 @@ body {
   padding: 0;
 }
 
+@media (max-width: 768px) {
+  body {
+    align-items: flex-start;
+    padding: 2rem 1rem;
+  }
+
+  .auth-container {
+    max-width: 480px;
+    padding: 20px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .auth-container {
+    padding: 18px 16px;
+    border-radius: 12px;
+  }
+
+  .auth-container h2 {
+    font-size: 1.6rem;
+  }
+}
+
 
 /* ===== Auth Container ===== */
 .auth-container {

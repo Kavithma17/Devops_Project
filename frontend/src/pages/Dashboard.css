@@ -32,7 +32,7 @@
 
 /* Header Styles */
 .classes-header {
-  
+  position: flex;
   color: rgb(255, 255, 255);
   padding: 120px 0 80px 20px;
   margin-top: 40px;
@@ -70,6 +70,7 @@
   font-weight: 900;
   margin-bottom: 1rem;
   line-height: 1.1;
+  
 }
 .highlight1
 { background: linear-gradient(135deg, #5edfd4, #93e395);
@@ -110,7 +111,7 @@
    =========================== */
 
 .dashboard-main {
-  max-width: 1200px;
+  
   margin: 0 auto;
   padding: 2rem 1.5rem 4rem;
 }
@@ -122,17 +123,17 @@
 .welcome-section {
   text-align: center;
   padding: 0.6rem;
-
+  
   border-radius: 20px;
-  border: 1px solid var(--border-color);
+  border: 1px solid rgb(0, 255, 213);
   margin-bottom: 3rem;
-  position: relative;
-  overflow: hidden;
+  
+  
 }
 
 .welcome-section::before {
   content: '';
-  position: absolute;
+  position: flex;
   top: 0;
   left: 0;
   right: 0;
@@ -174,7 +175,8 @@
 
 .navigation-section {
   margin-bottom: 3rem;
-  width: 1000px;
+  width: 100%;
+  max-width: 1000px;
 }
 
 .section-heading {
@@ -198,8 +200,9 @@
 }
 
 .navigation-grid {
+  max-width: 1100px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 3fr));
   gap: 1rem;
 }
 
@@ -353,6 +356,29 @@
    =========================== */
 
 @media (max-width: 768px) {
+  .classes-header {
+    padding: 80px 0 40px 1rem;
+    margin-top: 0;
+    height: auto;
+    margin-bottom: 0;
+  }
+
+  .classes-header::before {
+    height: 100%;
+  }
+
+  .page-title {
+    font-size: 2.25rem;
+  }
+
+  .page-description {
+    font-size: 1rem;
+  }
+
+  .navigation-section {
+    max-width: 100%;
+  }
+
   .dashboard-main {
     padding: 1.5rem 1rem 3rem;
   }
