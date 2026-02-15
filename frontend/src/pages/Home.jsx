@@ -11,7 +11,7 @@ function Home({ user }) {
         <div className="hero-content">
           <div className="hero-text">
             <h1 className="hero-title">
-              Welcome to <span className="brand-highlight">BloomWell</span>
+              Welcome to <span className="brand-highlight">Kawithma</span>
             </h1>
             <p className="hero-subtitle">
               Your personal sanctuary for mindful mood tracking, emotional wellness, and daily reflection
